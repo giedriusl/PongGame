@@ -1,0 +1,14 @@
+C:\Users\giedr\Source\Repos\PongGame\PongGame\bin\Debug\PongGame.exe.config
+C:\Users\giedr\Source\Repos\PongGame\PongGame\bin\Debug\PongGame.exe
+C:\Users\giedr\Source\Repos\PongGame\PongGame\bin\Debug\PongGame.pdb
+C:\Users\giedr\Source\Repos\PongGame\PongGame\obj\Debug\PongGame.csprojResolveAssemblyReference.cache
+C:\Users\giedr\Source\Repos\PongGame\PongGame\obj\Debug\PongGame.csproj.CoreCompileInputs.cache
+C:\Users\giedr\Source\Repos\PongGame\PongGame\obj\Debug\PongGame.exe
+C:\Users\giedr\Source\Repos\PongGame\PongGame\obj\Debug\PongGame.pdb
+C:\Users\giedr\Source\Repos\Pong\PongGame\bin\Debug\PongGame.exe.config
+C:\Users\giedr\Source\Repos\Pong\PongGame\bin\Debug\PongGame.exe
+C:\Users\giedr\Source\Repos\Pong\PongGame\bin\Debug\PongGame.pdb
+C:\Users\giedr\Source\Repos\Pong\PongGame\obj\Debug\PongGame.csprojResolveAssemblyReference.cache
+C:\Users\giedr\Source\Repos\Pong\PongGame\obj\Debug\PongGame.csproj.CoreCompileInputs.cache
+C:\Users\giedr\Source\Repos\Pong\PongGame\obj\Debug\PongGame.exe
+C:\Users\giedr\Source\Repos\Pong\PongGame\obj\Debug\PongGame.pdb
