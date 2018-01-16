@@ -51,11 +51,11 @@ namespace PongGame
             {
                 Move(first, second);
             }
-            else if (Y - 1 == (int)Borders.Ceiling)
+            else if (Y - 1 <= (int)Borders.Ceiling)
             {
                 Direction = Direction == Directions.UnL ? Directions.DnL : Directions.DnR;
             }
-            else if (Y + 1 == (int)Borders.Floor)
+            else if (Y + 1 >= (int)Borders.Floor)
             {
                 Direction = Direction == Directions.DnL ? Directions.UnL : Directions.UnR;
             }

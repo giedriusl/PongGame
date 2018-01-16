@@ -20,7 +20,7 @@ namespace PongGame
 
         public void Start()
         {
-            while (_firstPlayer.Points < 5 || _secondPlayer.Points < 5)
+            while ((_firstPlayer.Points < 5) && (_secondPlayer.Points < 5))
             {
                 while (!Console.KeyAvailable) { }
                 _scored = false;
@@ -30,19 +30,26 @@ namespace PongGame
                     {
                         _scored = _ball.Move(_firstPlayer, _secondPlayer);
                         Thread.Sleep(100);
-                    } else
+                    }
+                    else
                     {
-                        _scored = _ball.Move(_firstPlayer,_secondPlayer);
+                        _scored = _ball.Move(_firstPlayer, _secondPlayer);
                         PlayerMove();
                         Thread.Sleep(100);
-                    }                    
+                    }
                 }
 
                 _ball.Reset();
                 _firstPlayer.Reset();
                 _secondPlayer.Reset();
-
             }
+            var winner = _firstPlayer.Points == 5 ? "First player won!" : "Second player won!";
+            ClearEverything();
+            Console.CursorLeft = 15;
+            Console.CursorTop = 7;
+            Console.ResetColor();
+            Console.Write(winner);
+            Console.ReadLine();
 
         }
 
@@ -99,6 +106,13 @@ namespace PongGame
                     _secondPlayer.Move(Move.Down);
                     break;
             }
+        }
+
+        public void ClearEverything()
+        {
+            _ball.Draw(remove: true);
+            _firstPlayer.Draw(remove: true);
+            _secondPlayer.Draw(remove: true);
         }
 
     }
