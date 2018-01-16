@@ -20,7 +20,8 @@ namespace PongGame
 
         public void Start()
         {
-            while (_firstPlayer.Points < 5 || _secondPlayer.Points < 5)
+            DrawScore();
+            while ((_firstPlayer.Points < 5) && (_secondPlayer.Points < 5))
             {
                 while (!Console.KeyAvailable) { }
                 _scored = false;
@@ -30,24 +31,28 @@ namespace PongGame
                     {
                         _scored = _ball.Move(_firstPlayer, _secondPlayer);
                         Thread.Sleep(100);
-                    } else
+                    }
+                    else
                     {
-                        _scored = _ball.Move(_firstPlayer,_secondPlayer);
+                        _scored = _ball.Move(_firstPlayer, _secondPlayer);
                         PlayerMove();
                         Thread.Sleep(100);
-                    }                    
+                    }
                 }
-
+                DrawScore();
                 _ball.Reset();
                 _firstPlayer.Reset();
                 _secondPlayer.Reset();
-
             }
-
+            var winner = _firstPlayer.Points == 5 ? "First player won!" : "Second player won!";
+            ClearEverything();
+            WhosTheWinner(winner);
+            Restart(winner);
         }
 
         private void InitDraw()
         {
+            Console.ResetColor();
             DrawTable();
             _firstPlayer.Draw();
             _secondPlayer.Draw();
@@ -101,6 +106,50 @@ namespace PongGame
             }
         }
 
+        public void ClearEverything()
+        {
+            _ball.Draw(remove: true);
+            _firstPlayer.Draw(remove: true);
+            _secondPlayer.Draw(remove: true);
+        }
+
+        public void DrawScore()
+        {
+            Console.CursorLeft = 3;
+            Console.CursorTop = 0;
+            Console.Write("First player : {0}  |  Second player : {1}", _firstPlayer.Points, _secondPlayer.Points);
+        }
+
+        public void WhosTheWinner(string winner)
+        {
+            Console.ResetColor();
+            Console.CursorLeft = 15;
+            Console.CursorTop = 7;
+            Console.Write(winner);
+        }
+
+        public void Restart(string winner)
+        {
+            Console.CursorLeft = 15;
+            Console.CursorTop = 10;
+            Console.Write("Restart? (y/n)");
+            
+            while (true){
+                var key = Console.ReadKey(true).Key.ToString();
+                switch (key)
+                {
+                    case "Y":
+                        _firstPlayer.Points = 0;
+                        _secondPlayer.Points = 0;
+                        InitDraw();
+                        Start();
+                        break;
+                    case "N":
+                        Environment.Exit(0);
+                        break;
+                }
+            }
+        }
     }
 }
 
